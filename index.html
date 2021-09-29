@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compativle" content="IE=edge"></meta>
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<title>긴급!디자인과 응급처치</title>
+</head>
+<body>
+	<video src="./Fire.mp4" muted autoplay loop></video>
+	<div class="flex">
+		<p class="text">★정신차리세요!★</p>
+	</div>
+	<br>
+	<br>
+	<section class="marginset">
+	<div>
+		<div class="flex">
+			<div class="flex">
+				<button id="carmen120But">마감 5시간 전</button>
+			</div>
+			<div>
+				<audio id= "carmen120Snd" src="carmen120.mp3"></audio>
+				<input id="vol1" type="range" max="80" min="0" value="100" class="bar absolute range">
+			</div>
+		</div>
+	</div>
+	</section>
+		<br>
+	<section class="marginset">
+	<div>
+		<div class="flex">
+			<div class="flex">
+				<button id="carmen170But">마감 2시간 전</button>
+			</div>
+			<div>
+				<audio id= "carmen170Snd" src="carmen170.mp3"></audio>
+				<input id="vol2" type="range" max="100" min="0" value="100" class="bar absolute range">
+			</div>
+		</div>
+	</div>
+	</section>
+		<br>
+	<section class="marginset">
+	<div class="flex">
+		<button id="stopBut">휴식</button>
+	</div>
+	</section>
+
+	<script type="text/javascript">
+
+			//vol.value=100;
+
+			vol1.oninput=function(){
+				carmen120Snd.volume=vol1.value/100;
+			}
+
+			vol2.oninput=function(){
+				carmen170Snd.volume=vol2.value/100;
+			}
+
+			var state="play";
+
+		carmen120But.onclick=function(){
+			if(state=="play"){
+				carmen120Snd.play();
+				state="pause";
+			}else{
+				carmen120Snd.pause();
+				state="play";
+			}	
+		}
+
+		carmen170But.onclick=function(){
+			if(state=="play"){
+				carmen170Snd.play();
+				state="pause";
+			}else{
+				carmen170Snd.pause();
+				state="play";
+			}	
+		}
+
+		stopBut.onclick=function(){
+			carmen120Snd.pause();
+			carmen170Snd.pause();
+		}
+	</script>
+	
+</body>
+</html>
